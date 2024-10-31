@@ -1,4 +1,5 @@
 const Job = require("../models/job.model");
+const Resume = require("../models/resume.model");
 
 
 // [POST] /api/v1/jobs/create
@@ -67,5 +68,26 @@ module.exports.delete = async (req, res) => {
     res.json({
         code: 200,
         message: "Xóa bản tin thành công!"
+    })
+}
+
+// [PATCH] /api/v1/jobs/review/:resumeId
+module.exports.review = async (req, res) => {
+    const resumeId = req.params.resumeId;
+
+    await Resume.updateOne({
+        _id: resumeId
+    }, {
+        status: "accept"
+    })
+
+    const resume = await Resume.findOne({
+        _id: resumeId,
+    })
+
+    res.json({
+        code: 200,
+        message: "Cập nhật bản tin thành công!",
+        resume: resume
     })
 }

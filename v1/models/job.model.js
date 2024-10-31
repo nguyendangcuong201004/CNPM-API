@@ -13,6 +13,7 @@ const jobSchema = new mongoose.Schema({
         type: Date,
         default: Date.now        
     },          
+    resumes: Array,
 }, {
     timestamps: true              // Tự động thêm các trường createdAt và updatedAt
 });

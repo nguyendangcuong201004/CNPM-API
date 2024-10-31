@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 const resumeSchema = new mongoose.Schema({
     jobSeekerID: String,
-    status: String,
+    status: { type: String,
+        default: "finding"
+     },
     degree: String,
     field: String,
     institution: String,

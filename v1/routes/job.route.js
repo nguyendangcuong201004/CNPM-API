@@ -16,5 +16,7 @@ router.patch("/edit/:id" ,controller.edit)
 
 router.delete("/delete/:id" ,controller.delete) 
 
+router.patch("/review/:resumeId" ,controller.review) 
+
 
 module.exports = router;

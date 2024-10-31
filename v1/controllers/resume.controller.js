@@ -61,7 +61,7 @@ module.exports.edit = async (req, res) => {
     })
 }
 
-// [DELETE] /api/v1/tasks/delete/:id
+// [DELETE] /api/v1/resumes/delete/:id
 module.exports.delete = async (req, res) => {
 
     const id = req.params.id;
