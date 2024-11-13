@@ -122,6 +122,7 @@ module.exports.passwordForgot = async (req, res) => {
     
     res.json({
         code: 200,
+        otp: otp,
         message: "OTP đã được gửi qua email!"
     })
 }
