@@ -5,7 +5,12 @@ const router = express.Router();
 const controller = require("../controllers/apply.controller.js");
 
 
-router.get("/:jobId", controller.apply) 
+
+router.get("/", controller.index)
+
+router.get("/getJob/:jobId", controller.apply) 
+
+router.get("/pick/:jobId", controller.pickJob) 
 
 router.patch("/:jobId/:resumeId", controller.applyPatch) 
 

@@ -1,6 +1,6 @@
 const Resume = require("../models/resume.model")
 
-// [GET] /api/v1/resumes
+// [GET] /api/v1/resumes    
 module.exports.index = async (req, res) => {
 
     const jobSeekerId = res.locals.jobSeeker.id;
