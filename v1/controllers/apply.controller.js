@@ -15,7 +15,7 @@ module.exports.index = async (req, res) => {
     }
 
     const pagination = {
-        limit: 5,
+        limit: 6,
         page: 1
     }
 
