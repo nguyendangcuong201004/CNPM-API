@@ -74,6 +74,18 @@ module.exports.delete = async (req, res) => {
 // [PATCH] /api/v1/jobs/review/:resumeId
 module.exports.review = async (req, res) => {
     const resumeId = req.params.resumeId;
+    const jobId = req.params.jobId
+
+
+    const resumeOld = await Resume.findOne({
+        _id: resumeId,
+    })
+
+    await Job.updateOne({
+        _id: jobId,
+    }, {
+        $pull: { resumes: resumeOld }
+    })
 
     await Resume.updateOne({
         _id: resumeId
@@ -81,8 +93,15 @@ module.exports.review = async (req, res) => {
         status: "accept"
     })
 
+
     const resume = await Resume.findOne({
         _id: resumeId,
+    })
+
+    await Job.updateOne({
+        _id: jobId
+    }, {
+        $push: { resumes: resume }
     })
 
     res.json({
